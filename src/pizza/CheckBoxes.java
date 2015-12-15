@@ -20,10 +20,13 @@ import javax.swing.JMenuItem;
 public class CheckBoxes extends JFrame {
 	
 	protected static PrintWriter receipt; 
+	protected double price = 0; 
      
     public CheckBoxes() throws FileNotFoundException, UnsupportedEncodingException {
         
     	receipt = new PrintWriter("Receipt.txt", "UTF-8");
+    	receipt.println("Thanks for buying from Jesica's Pizzaria!");
+    	receipt.println(" ");
     	JLabel crust = new JLabel(new ImageIcon("base.png"));
     	add(crust);
         setTitle("Create Your Own Pizza");
@@ -73,10 +76,9 @@ public class CheckBoxes extends JFrame {
         JMenuItem meatAction = new JMenuItem("Meat Lovers");
         JMenuItem veggeAction = new JMenuItem("Veggie Lovers"); 
          
-
+        menuBar.add(saveAction);
+        
         fileMenu.add(newAction);
-        //fileMenu.add(loadAction);
-        fileMenu.add(saveAction);
         fileMenu.addSeparator();
         fileMenu.add(quitAction);
         
@@ -118,13 +120,6 @@ public class CheckBoxes extends JFrame {
             }
         });
         
-        saveAction.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                
-            	receipt.close(); 
-                
-            }
-        });
         
         quitAction.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -141,7 +136,7 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Sauce.red(crust);
-            	receipt.println("Red Sauce");
+            	receipt.println("+ Red Sauce");
             	
             }
         });
@@ -150,7 +145,7 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Sauce.white(crust);
-            	receipt.println("White Sauce");
+            	receipt.println("+ White Sauce");
             	
             }
         });
@@ -159,7 +154,7 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Sauce.cheese(crust); 
-            	receipt.println("Cheese");
+            	receipt.println("+ Cheese");
             	
             }
         });
@@ -169,7 +164,9 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Meats.pepp(crust); 
-            	receipt.println("Pepperoni");
+            	double pepporoniPrice = 2.00; 
+            	price = price + pepporoniPrice; 
+            	receipt.println("+ Pepporoni				" + pepporoniPrice);
             	
             }
         });
@@ -178,7 +175,9 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Meats.bacon(crust); 
-            	receipt.println("Canadian Bacon");
+            	double baconPrice = 2.00; 
+            	price = price + baconPrice; 
+            	receipt.println("+ Canadian Bacon			" + baconPrice);
             	
             }
         });
@@ -187,7 +186,9 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Meats.sausage(crust); 
-            	receipt.println("Sausage");
+            	double sausagePrice = 2.00; 
+            	price = price + sausagePrice; 
+            	receipt.println("+ Sausage					" + sausagePrice);
             	
             }
         });
@@ -197,7 +198,9 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Vegetables.mushroom(crust); 
-            	receipt.println("Mushrooms");
+            	double mushroomPrice = 1.00; 
+            	price = price + mushroomPrice; 
+            	receipt.println("+ Mushrooms				" + mushroomPrice);
             	
             }
         });
@@ -206,7 +209,9 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Vegetables.peppers(crust); 
-            	receipt.println("Peppers");
+            	double peppersPrice = 1.00; 
+            	price = price + peppersPrice; 
+            	receipt.println("+ Peppers					" + peppersPrice);
             	
             }
         });
@@ -215,7 +220,9 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Vegetables.olives(crust); 
-            	receipt.println("Olives");
+            	double olivesPrice = 1.00; 
+            	price = price + olivesPrice; 
+            	receipt.println("+ Olives					" + olivesPrice);
             	
             }
         });
@@ -224,7 +231,9 @@ public class CheckBoxes extends JFrame {
             public void actionPerformed(ActionEvent arg0) {
             	
             	Vegetables.pineapple(crust);
-            	receipt.println("Pineapple");
+            	double pineaplePrice = 1.00; 
+            	price = price + pineaplePrice; 
+            	receipt.println("+ Pineapple				" + pineaplePrice);
             	
             }
         });
@@ -250,7 +259,11 @@ public class CheckBoxes extends JFrame {
 					e.printStackTrace();
 				}
             	
-            	receipt.println("(1) Supreme Pizza");
+        		receipt.println("Thanks for buying from Jesica's Pizzaria!");
+            	receipt.println(" ");
+        		double supremePrice = 6.50; 
+            	price = 0 + supremePrice; 
+            	receipt.println("(1) Supreme Pizza		" + supremePrice);
             	
             }
         });
@@ -276,8 +289,12 @@ public class CheckBoxes extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-            	receipt.println("(1) Hawaiian Pizza");
-            	
+        		
+        		receipt.println("Thanks for buying from Jesica's Pizzaria!");
+            	receipt.println(" ");
+        		double hawaiiPrice = 2.50; 
+            	price = 0 + hawaiiPrice; 
+            	receipt.println("(1) Hawaiian Pizza		" + hawaiiPrice);
             }
         });
         
@@ -302,7 +319,12 @@ public class CheckBoxes extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-            	receipt.println("(1) Meat Lovers");
+        		
+        		receipt.println("Thanks for buying from Jesica's Pizzaria!");
+            	receipt.println(" ");
+        		double meatPrice = 5.50; 
+            	price = 0 + meatPrice; 
+            	receipt.println("(1) Meat Lovers		" + meatPrice);
             	
             }
         });
@@ -327,8 +349,23 @@ public class CheckBoxes extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-            	receipt.println("(1) Veggie Lovers");
+        		
+        		receipt.println("Thanks for buying from Jesica's Pizzaria!");
+            	receipt.println(" ");
+        		double vegPrice = 2.50; 
+            	price = 0 + vegPrice; 
+            	receipt.println("(1) Veggie Lovers		" + vegPrice);
             	
+            }
+        });
+        
+        saveAction.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                
+            	receipt.println("");
+            	receipt.println("Total Price:			$" + price);
+            	receipt.close(); 
+                
             }
         });
         
